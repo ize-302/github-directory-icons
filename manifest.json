@@ -1,0 +1,34 @@
+{
+  "name": "github-directory-icons",
+  "version": "0.0.1",
+  "description": "github-directory-icons",
+  "offline_enabled": true,
+  "manifest_version": 3,
+  "author": "Adavize Hassan",
+  "action": {},
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://github.com/*"],
+      "js": [
+        "jquery.min.js",
+        "helpers/folderIcons.js",
+        "helpers/fileIcons.js",
+        "content.js"
+      ]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "icons/*",
+        "helpers/folderIcons.js",
+        "helpers/fileIcons.js"
+      ],
+      "matches": ["https://github.com/*"]
+    }
+  ],
+  "permissions": ["tabs", "activeTab"]
+}
